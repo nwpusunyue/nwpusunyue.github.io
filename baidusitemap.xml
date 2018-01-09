@@ -4,8 +4,48 @@
 
     
   <url>
+    <loc>http://shun-fu.cn/2018/01/08/welcome/</loc>
+    <lastmod>2018-01-09T04:22:11.442Z</lastmod>
+    <data>
+        <display>
+        <title>welcome</title>
+        <pubTime>2018-01-08T09:29:32.000Z</pubTime>
+        
+        <tag>welcome</tag>
+         
+         
+           
+             
+              <breadCrumb title="闲谈杂记" url="http://shun-fu.cn/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shun-fu.cn/2018/01/09/testpage/</loc>
+    <lastmod>2018-01-09T04:19:38.039Z</lastmod>
+    <data>
+        <display>
+        <title>testpage</title>
+        <pubTime>2018-01-09T04:18:57.000Z</pubTime>
+        
+        <tag>test</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程应用" url="http://shun-fu.cn/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shun-fu.cn/2018/01/08/hello-world/</loc>
-    <lastmod>2018-01-09T02:15:50.630Z</lastmod>
+    <lastmod>2018-01-09T04:18:37.365Z</lastmod>
     <data>
         <display>
         <title>Hello World</title>
@@ -15,25 +55,8 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shun-fu.cn/2018/01/08/welcome/</loc>
-    <lastmod>2018-01-09T02:15:39.957Z</lastmod>
-    <data>
-        <display>
-        <title>welcome</title>
-        <pubTime>2018-01-08T09:29:32.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
              
-              <breadCrumb title="实验" url="http://shun-fu.cn/categories/%E5%AE%9E%E9%AA%8C/"/>
+              <breadCrumb title="教程应用" url="http://shun-fu.cn/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
           
         </display>
     </data>
