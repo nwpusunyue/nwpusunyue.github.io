@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shun-fu.cn/2018/01/08/hello-world/</loc>
+    
+    <lastmod>2018-01-09T02:15:50.630Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://shun-fu.cn/2018/01/08/welcome/</loc>
     
-    <lastmod>2018-01-08T14:36:34.726Z</lastmod>
+    <lastmod>2018-01-09T02:15:39.957Z</lastmod>
     
   </url>
   
@@ -23,14 +30,14 @@
   </url>
   
   <url>
-    <loc>http://shun-fu.cn/categories/index.html</loc>
+    <loc>http://shun-fu.cn/links/index.html</loc>
     
     <lastmod>2018-01-08T08:19:10.855Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://shun-fu.cn/links/index.html</loc>
+    <loc>http://shun-fu.cn/categories/index.html</loc>
     
     <lastmod>2018-01-08T08:19:10.855Z</lastmod>
     
@@ -54,13 +61,6 @@
     <loc>http://shun-fu.cn//404.html</loc>
     
     <lastmod>2018-01-08T08:19:10.850Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://shun-fu.cn/2018/01/08/hello-world/</loc>
-    
-    <lastmod>2018-01-08T08:14:06.925Z</lastmod>
     
   </url>
   

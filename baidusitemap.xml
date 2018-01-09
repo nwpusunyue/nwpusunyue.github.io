@@ -4,16 +4,31 @@
 
     
   <url>
+    <loc>http://shun-fu.cn/2018/01/08/hello-world/</loc>
+    <lastmod>2018-01-09T02:15:50.630Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2018-01-08T08:14:06.924Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shun-fu.cn/2018/01/08/welcome/</loc>
-    <lastmod>2018-01-08T14:36:34.726Z</lastmod>
+    <lastmod>2018-01-09T02:15:39.957Z</lastmod>
     <data>
         <display>
         <title>welcome</title>
         <pubTime>2018-01-08T09:29:32.000Z</pubTime>
         
         <tag>hexo</tag>
-         
-        <tag>github</tag>
          
          
            
@@ -31,19 +46,4 @@
     
     
     
-    
-  <url>
-    <loc>http://shun-fu.cn/2018/01/08/hello-world/</loc>
-    <lastmod>2018-01-08T08:14:06.925Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2018-01-08T08:14:06.924Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

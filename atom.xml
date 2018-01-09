@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shun-fu.cn/"/>
-  <updated>2018-01-08T14:36:34.726Z</updated>
+  <updated>2018-01-09T02:15:39.957Z</updated>
   <id>http://shun-fu.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://shun-fu.cn/2018/01/08/welcome/"/>
     <id>http://shun-fu.cn/2018/01/08/welcome/</id>
     <published>2018-01-08T09:29:32.000Z</published>
-    <updated>2018-01-08T14:36:34.726Z</updated>
+    <updated>2018-01-09T02:15:39.957Z</updated>
     
     <content type="html"><![CDATA[<h1 id="welcome"><a class="markdownIt-Anchor" href="#welcome"></a> welcome</h1><p>欢迎大家访问我的个人博客，我将更加努力！<br>本博客参考hexo官网主题<a href="https://github.com/cofess/hexo-theme-pure" target="_blank" rel="noopener">pure</a></p><h1 id="hexo-建站"><a class="markdownIt-Anchor" href="#hexo-建站"></a> Hexo 建站</h1><p>使用Hexo建站十分的方便，好用。<br>只要你有兴趣，可以在几个小时之内搭建你自己的喜欢的博客。</p><h1 id="个人体会"><a class="markdownIt-Anchor" href="#个人体会"></a> 个人体会</h1><p>折腾了好几天，终于有所收获。虽然现在还是对其原理一知半解，但是会在以后慢慢使用中更加熟悉了解。</p>]]></content>
     
@@ -41,8 +41,6 @@
     
       <category term="hexo" scheme="http://shun-fu.cn/tags/hexo/"/>
     
-      <category term="github" scheme="http://shun-fu.cn/tags/github/"/>
-    
   </entry>
   
   <entry>
@@ -50,7 +48,7 @@
     <link href="http://shun-fu.cn/2018/01/08/hello-world/"/>
     <id>http://shun-fu.cn/2018/01/08/hello-world/</id>
     <published>2018-01-08T08:14:06.924Z</published>
-    <updated>2018-01-08T08:14:06.925Z</updated>
+    <updated>2018-01-09T02:15:50.630Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -63,6 +61,8 @@
     
     </summary>
     
+    
+      <category term="hexo" scheme="http://shun-fu.cn/tags/hexo/"/>
     
   </entry>
   
