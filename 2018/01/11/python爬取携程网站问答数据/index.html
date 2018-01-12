@@ -16,22 +16,29 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>书单 | 孙悦的博客|YueSun</title>
-  <meta name="description" content="孙悦的博客|YueSun">
-<meta property="og:type" content="website">
-<meta property="og:title" content="书单">
-<meta property="og:url" content="http://shun-fu.cn/books/index.html">
+  <title>Python爬取携程网站问答数据 | 孙悦的博客|YueSun</title>
+  <meta name="description" content="背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到） 在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，发现携程的评论分类是基于标">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬取携程网站问答数据">
+<meta property="og:url" content="http://shun-fu.cn/2018/01/11/python爬取携程网站问答数据/index.html">
 <meta property="og:site_name" content="YueYue">
-<meta property="og:description" content="孙悦的博客|YueSun">
+<meta property="og:description" content="背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到） 在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，发现携程的评论分类是基于标">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-08T08:19:10.854Z">
+<meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-home.jpg">
+<meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-qa.jpg">
+<meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-label.jpg">
+<meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-list.jpg">
+<meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-detail.jpg">
+<meta property="og:updated_time" content="2018-01-12T03:44:10.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="书单">
-<meta name="twitter:description" content="孙悦的博客|YueSun">
+<meta name="twitter:title" content="Python爬取携程网站问答数据">
+<meta name="twitter:description" content="背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到） 在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，发现携程的评论分类是基于标">
+<meta name="twitter:image" content="http://shun-fu.cn/images/posts/experiment/hotel-home.jpg">
 <meta name="twitter:creator" content="@nwpusunyue">
 <link rel="publisher" href="nwpusunyue">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://shun-fu.cn/books/index.html">
+  <link rel="canonical" href="http://shun-fu.cn/2018/01/11/python爬取携程网站问答数据/index.html">
   
     <link rel="alternate" href="/atom.xml" title="YueYue" type="application/atom+xml">
   
@@ -48,7 +55,7 @@
 </head>
 
 
-<body class="main-center theme-black no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -343,40 +350,193 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-links article-type-list" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">书单</h1>
-    <p class="text-muted">个人收藏的书单推荐给大家 <a href="https://www.douban.com/people/172313326/" target="_blank">[我的豆瓣]</a></p>
-    <nav role="navigation" id="nav-main" class="okayNav">
-      <ul id="tabs">
-        <li><a id="reading-tab" href="javascript:show('reading')" target="_blank" rel="external">在读<span id="reading-total"></span></a></li>
-        <li><a id="wish-tab" href="javascript:show('wish')" target="_blank" rel="external">想读<span id="wish-total"></span></a></li>
-        <li><a id="read-tab" href="javascript:show('read')" target="_blank" rel="external">已读<span id="read-total"></span></a></li>
-      </ul>
-    </nav>
-  </header>
-  <div class="article-body">
-    <div id="loading">
-      <p>正在加载...</p>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-python爬取携程网站问答数据" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python爬取携程网站问答数据
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/11/python爬取携程网站问答数据/" class="article-date">
+	  <time datetime="2018-01-11T13:46:01.000Z" itemprop="datePublished">2018-01-11</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/教程应用/">教程应用</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/python/">python</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/11/python爬取携程网站问答数据/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
-    <div id="douban">
-      <div id="collections">
-        <div id="reading" class="row hide">
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h1 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h1>
+<p>昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，<strong>方法大似气力</strong>。经过简单入门的学习，仿写代码之后，终于实现了这个功能。</p>
+<h1 id="观察"><a class="markdownIt-Anchor" href="#观察"></a> 观察</h1>
+<p>从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）<img src="/images/posts/experiment/hotel-home.jpg" alt="hotel-home" title="hotel-home"></p>
+<p>在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，发现携程的评论分类是基于标签的,并且仔细观察，这个URL中出现的一串数字和首页出现的数字是一样的。<br>
+<img src="/images/posts/experiment/hotel-qa.jpg" alt="hotel-Q&amp;A" title="hotel-Q&amp;A"><br>
+<img src="/images/posts/experiment/hotel-label.jpg" alt="hotel-label" title="hotel-label"><br>
+该页面是经过初步筛选的包含该酒店的问答信息。每页有20条评论，详细的问答页需要再次点击查看，分别为：<br>
+<img src="/images/posts/experiment/hotel-list.jpg" alt="hotel-list" title="hotel-list"><br>
+<img src="/images/posts/experiment/hotel-detail.jpg" alt="hotel-detail" title="hotel-detail"></p>
+<p>所以，就按照网页浏览的顺序进行：<br>
+<em>·1 在全部问答信息中获得包含某酒店标签的问答数据详情页的URL</em><br>
+<em>·2 从问答的详情页抓取提问的问题及回复的答案等数据</em></p>
+<h1 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验</h1>
+<p>参考网上博客</p>
+<h1 id=""><a class="markdownIt-Anchor" href="#"></a> </h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://shun-fu.cn/2018/01/11/python爬取携程网站问答数据/" title="Python爬取携程网站问答数据" target="_blank" rel="external">http://shun-fu.cn/2018/01/11/python爬取携程网站问答数据/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/nwpusunyue" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/nwpusunyue" target="_blank"><span class="text-dark">孙悦</span><small class="ml-1x">努力学习中……欢迎大家评论留言点赞转发打赏,谢谢大家支持!</small></a></h3>
+        <div>西北工业大学-计算机学院。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA4My85NjQ0">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/01/12/新年蒙福/" title="新年蒙福"><i class="icon icon-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;上一篇</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/01/08/welcome/" title="Welcome">下一篇&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter,google,linkedin" data-mobile-sites="weibo,qq,qzone,facebook,twitter"></div>
+    
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/zhifu.png" alt="扫码支持" title="扫一扫" />
+          </div>
+          <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/zhifu.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="支付宝" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weixin.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="微信支付" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>扫一扫，即可进行扫码打赏哦</p>
+          </div>
         </div>
-        <div class="clearfix"></div>
-        <div id="wish" class="row hide">
-        </div>
-        <div class="clearfix"></div>
-        <div id="read" class="row hide">
-        </div>
-        <div class="clearfix"></div>
       </div>
     </div>
   </div>
-</article>
-
-  
+</div>
 
 
 
@@ -417,155 +577,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
   
     
     
-        <script>
-function show(id) {
-  document.getElementById('reading').classList.remove('active');
-  document.getElementById('read').classList.remove('active');
-  document.getElementById('wish').classList.remove('active');
-  document.getElementById('reading').classList.add('hide');
-  document.getElementById('read').classList.add('hide');
-  document.getElementById('wish').classList.add('hide');
-
-  var ele = document.getElementById(id);
-  ele.classList.remove('hide');
-  ele.classList.add('active');
-
-  document.getElementById('reading-tab').classList.remove('active');
-  document.getElementById('read-tab').classList.remove('active');
-  document.getElementById('wish-tab').classList.remove('active');
-  document.getElementById(id + '-tab').classList.add('active');
-};
-
-(function() {
-  var read = [];
-  var wish = [];
-  var reading = [];
-
-  // XHR 获取豆瓣书单数据，数据格式json
-  // function loadDoubanCollections() {
-  //   var xhr = new XMLHttpRequest();
-  //   // https://api.douban.com/v2/book/user/:name/collections
-  //   xhr.open('GET', 'http://7b1fa0.com1.z0.glb.clouddn.com/douban-20170429-1.json', true);
-
-  //   xhr.onload = function() {
-  //     // console.log(this);
-  //     if (this.status >= 200 && this.status < 300) {
-  //       var res = JSON.parse(this.response);
-  //       searchData = res;
-  //       onLoadDouban(searchData);
-  //     } else {
-  //       console.error(this.statusText);
-  //     }
-  //   };
-
-  //   xhr.onerror = function() {
-  //     console.error(this.statusText);
-  //   };
-
-  //   xhr.send();
-  // }
-  
-  // Ajax 获取豆瓣书单数据，数据格式json
-  function loadDoubanCollections() {
-    var _this = this;
-    // https://api.douban.com/v2/book/user/:name/collections?start=0&count=100
-    var url = "https://api.douban.com/v2/book/user/172313326/collections"
-    $.ajax({
-      url: url,
-      type: 'GET',
-      data: {
-        start:0, // 从哪一条记录开始
-        count:100 // 获取豆瓣书单数据条数
-      },
-      dataType: 'JSONP', //here
-      success: function(data) {
-        // console.log(data);
-        onLoadDouban(data);
-      }
-    });
-  }
-
-  function onLoadDouban(data) {
-    if (data['count'] > 0) {
-      for (var i = 0; i < data['collections'].length; ++i) {
-        resolveBook(data['collections'][i]);
-      }
-    }
-    render();
-  }
-
-  function resolveBook(book) {
-    if (book['status'] == 'read') {
-      read.push(book);
-    }
-    if (book['status'] == 'wish') {
-      wish.push(book);
-    }
-    if (book['status'] == 'reading') {
-      reading.push(book);
-    }
-  }
-
-  function render() {
-    renderList(read, 'read');
-    renderList(wish, 'wish');
-    renderList(reading, 'reading');
-
-    document.getElementById('reading-total').innerHTML = '(' + reading.length + ')';
-    document.getElementById('read-total').innerHTML = '(' + read.length + ')';
-    document.getElementById('wish-total').innerHTML = '(' + wish.length + ')';
-
-    show('reading');
-    document.getElementById('loading').classList.add('hide');
-  }
-
-  function renderList(list, id) {
-    for (var i = 0; i < list.length; ++i) {
-      var h = renderBook(list[i]);
-      if (i > 0 && i % 4 == 3) {
-        h += '<div class="clearfix"></div>';
-      }
-      document.getElementById(id).innerHTML = document.getElementById(id).innerHTML + h;
-    }
-  }
-
-  function renderBook(book) {
-    var html = '<div class="col-sm-6 col-md-6"><div class="panel panel-default hover-grow"><div class="panel-body">'
-      + '<div class="media media-middle book book-' + book['status'] + '" itemscope itemtype="http://schema.org/Book">' 
-      + '<div class="media-left"><a class="media-middle" target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer"><img class="media-object" src="' + book.book.image + '" itemprop="image"/></a></div><div class="media-body">' 
-      + '<h3 class="media-heading" itemprop="name"><a target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer">' + book.book.title + '</a></h3>' 
-      + '<p class="meta text-nowrap-1x"><small itemprop="author">' + book.book.author[0] + '</small> / <small itemprop="datePublished">' + book.book.pubdate + '</small> / <small itemprop="ratingValue">' + book.book.rating.average + '分</small></p>' 
-      + '<p class="meta text-nowrap-1x">' + book.updated.substring(0, 10) + resolveRating(book.rating) + resolveTags(book.tags) + '</p>' 
-      + '<div class="comments text-muted text-nowrap-3x" itemprop="comment">' + (book.comment ? book.comment : '') + '</div>' 
-      + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
-    return html;
-  }
-
-  function resolveRating(rating) {
-    if (rating && rating.value) {
-      return ' / ' + rating.value + '星';
-    }
-    return '';
-  }
-
-  function resolveTags(tags) {
-    if (tags && tags.length > 0) {
-      var html = ' / ';
-      for (var i = 0; i < tags.length; ++i) {
-        html += tags[i] + ' ';
-      }
-      return html;
-    }
-    return '';
-  }
-
-  setTimeout(function() {
-    loadDoubanCollections();
-  }, 0)
-})()
-</script>
-
-    
     
         <script>
 (function (window) {
@@ -587,6 +598,30 @@ function show(id) {
     
     
     
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
     
     
         <script defer type="text/javascript">
