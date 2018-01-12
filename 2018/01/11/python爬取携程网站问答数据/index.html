@@ -17,13 +17,13 @@
   
   
   <title>Python爬取携程网站问答数据 | 孙悦的博客|YueSun</title>
-  <meta name="description" content="背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，  发现携程的评论分类是">
+  <meta name="description" content="【Tips：点击右下角锚链图标查看文章目录。】  背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】">
 <meta name="keywords" content="python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬取携程网站问答数据">
 <meta property="og:url" content="http://shun-fu.cn/2018/01/11/python爬取携程网站问答数据/index.html">
 <meta property="og:site_name" content="YueYue">
-<meta property="og:description" content="背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，  发现携程的评论分类是">
+<meta property="og:description" content="【Tips：点击右下角锚链图标查看文章目录。】  背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-home.jpg">
 <meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-qa.jpg">
@@ -36,10 +36,10 @@
 <meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-ask_title.jpg">
 <meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-answer.jpg">
 <meta property="og:image" content="http://shun-fu.cn/images/posts/experiment/hotel-result.jpg">
-<meta property="og:updated_time" content="2018-01-12T13:15:47.894Z">
+<meta property="og:updated_time" content="2018-01-12T13:32:53.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬取携程网站问答数据">
-<meta name="twitter:description" content="背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，  发现携程的评论分类是">
+<meta name="twitter:description" content="【Tips：点击右下角锚链图标查看文章目录。】  背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】">
 <meta name="twitter:image" content="http://shun-fu.cn/images/posts/experiment/hotel-home.jpg">
 <meta name="twitter:creator" content="@nwpusunyue">
 <link rel="publisher" href="nwpusunyue">
@@ -168,7 +168,7 @@
         
         
         
-        <li class="menu-item menu-item-books active">
+        <li class="menu-item menu-item-books">
           <a href="/books">
             
             <i class="icon icon-book-fill"></i>
@@ -388,6 +388,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#观察"><span class="toc-number">2.</span> <span class="toc-text"> 观察</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">3.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础知识正则表达式"><span class="toc-number">4.</span> <span class="toc-text"> 基础知识——正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式常用的符号"><span class="toc-number">4.1.</span> <span class="toc-text"> 正则表达式常用的符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式的效果展示"><span class="toc-number">4.2.</span> <span class="toc-text"> 正则表达式的效果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式的实用技巧"><span class="toc-number">4.3.</span> <span class="toc-text"> 正则表达式的实用技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码实现"><span class="toc-number">5.</span> <span class="toc-text"> 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从全部问答信息中获得包含某酒店标签的问答详情页的url"><span class="toc-number">5.1.</span> <span class="toc-text"> 从全部问答信息中获得包含某酒店标签的问答详情页的URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从问答的详情页抓取提问的问题及回复的答案等数据"><span class="toc-number">5.2.</span> <span class="toc-text"> 从问答的详情页抓取提问的问题及回复的答案等数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化与改进"><span class="toc-number">6.</span> <span class="toc-text"> 优化与改进</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#感想"><span class="toc-number">7.</span> <span class="toc-text"> 感想</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
   <article id="post-python爬取携程网站问答数据" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -437,7 +446,8 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h1>
+        <p>【Tips：点击右下角锚链图标查看文章目录。】</p>
+<h1 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h1>
 <p>昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，<strong>方法大似气力</strong>。经过简单入门的学习，仿写代码之后，终于实现了这个功能。</p>
 <h1 id="观察"><a class="markdownIt-Anchor" href="#观察"></a> 观察</h1>
 <p>从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）<img src="/images/posts/experiment/hotel-home.jpg" alt="hotel-home" title="hotel-home"> <br><br>
@@ -580,8 +590,15 @@
   
   <div class="bar-right">
     
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter,google,linkedin" data-mobile-sites="weibo,qq,qzone,facebook,twitter"></div>
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter,google" data-mobile-sites="weibo,qq,qzone"></div>
     
+    
+    <div class="toggle-toc hidden-xs">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+      </a>
+    </div>
     
   </div>
   </div>
