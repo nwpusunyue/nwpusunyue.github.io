@@ -5,9 +5,9 @@
   <subtitle>孙悦的博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://www.shun-fu.cn:81/"/>
+  <link href="http://blog.shun-fu.cn/"/>
   <updated>2018-03-28T13:11:13.898Z</updated>
-  <id>https://www.shun-fu.cn:81/</id>
+  <id>http://blog.shun-fu.cn/</id>
   
   <author>
     <name>SunYue</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>给高中生的建议</title>
-    <link href="https://www.shun-fu.cn:81/2018/03/10/%E7%BB%99%E9%AB%98%E4%B8%AD%E7%94%9F%E7%9A%84%E5%BB%BA%E8%AE%AE/"/>
-    <id>https://www.shun-fu.cn:81/2018/03/10/给高中生的建议/</id>
+    <link href="http://blog.shun-fu.cn/2018/03/10/%E7%BB%99%E9%AB%98%E4%B8%AD%E7%94%9F%E7%9A%84%E5%BB%BA%E8%AE%AE/"/>
+    <id>http://blog.shun-fu.cn/2018/03/10/给高中生的建议/</id>
     <published>2018-03-10T05:29:13.000Z</published>
     <updated>2018-03-28T13:11:13.898Z</updated>
     
@@ -36,17 +36,17 @@
     
     </summary>
     
-      <category term="闲谈杂记" scheme="https://www.shun-fu.cn:81/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
+      <category term="闲谈杂记" scheme="http://blog.shun-fu.cn/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
     
     
-      <category term="经验建议" scheme="https://www.shun-fu.cn:81/tags/%E7%BB%8F%E9%AA%8C%E5%BB%BA%E8%AE%AE/"/>
+      <category term="经验建议" scheme="http://blog.shun-fu.cn/tags/%E7%BB%8F%E9%AA%8C%E5%BB%BA%E8%AE%AE/"/>
     
   </entry>
   
   <entry>
     <title>Android_APP_Development</title>
-    <link href="https://www.shun-fu.cn:81/2018/03/01/Android-APP-Development/"/>
-    <id>https://www.shun-fu.cn:81/2018/03/01/Android-APP-Development/</id>
+    <link href="http://blog.shun-fu.cn/2018/03/01/Android-APP-Development/"/>
+    <id>http://blog.shun-fu.cn/2018/03/01/Android-APP-Development/</id>
     <published>2018-03-01T07:58:21.000Z</published>
     <updated>2018-03-02T07:21:17.289Z</updated>
     
@@ -62,17 +62,17 @@
     
     </summary>
     
-      <category term="教程应用" scheme="https://www.shun-fu.cn:81/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
+      <category term="教程应用" scheme="http://blog.shun-fu.cn/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
     
     
-      <category term="Android" scheme="https://www.shun-fu.cn:81/tags/Android/"/>
+      <category term="Android" scheme="http://blog.shun-fu.cn/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>新学期计划</title>
-    <link href="https://www.shun-fu.cn:81/2018/02/26/%E6%96%B0%E5%AD%A6%E6%9C%9F%E8%AE%A1%E5%88%92/"/>
-    <id>https://www.shun-fu.cn:81/2018/02/26/新学期计划/</id>
+    <link href="http://blog.shun-fu.cn/2018/02/26/%E6%96%B0%E5%AD%A6%E6%9C%9F%E8%AE%A1%E5%88%92/"/>
+    <id>http://blog.shun-fu.cn/2018/02/26/新学期计划/</id>
     <published>2018-02-26T14:29:24.000Z</published>
     <updated>2018-03-28T13:11:46.589Z</updated>
     
@@ -95,17 +95,17 @@
     
     </summary>
     
-      <category term="闲谈杂记" scheme="https://www.shun-fu.cn:81/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
+      <category term="闲谈杂记" scheme="http://blog.shun-fu.cn/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
     
     
-      <category term="计划" scheme="https://www.shun-fu.cn:81/tags/%E8%AE%A1%E5%88%92/"/>
+      <category term="计划" scheme="http://blog.shun-fu.cn/tags/%E8%AE%A1%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>新编Excel2016应用大全</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/25/%E6%96%B0%E7%BC%96Excel2016%E5%BA%94%E7%94%A8%E5%A4%A7%E5%85%A8/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/25/新编Excel2016应用大全/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/25/%E6%96%B0%E7%BC%96Excel2016%E5%BA%94%E7%94%A8%E5%A4%A7%E5%85%A8/"/>
+    <id>http://blog.shun-fu.cn/2018/01/25/新编Excel2016应用大全/</id>
     <published>2018-01-25T08:56:36.000Z</published>
     <updated>2018-03-28T09:26:02.140Z</updated>
     
@@ -120,17 +120,17 @@
     
     </summary>
     
-      <category term="读书笔记" scheme="https://www.shun-fu.cn:81/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="http://blog.shun-fu.cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Excel" scheme="https://www.shun-fu.cn:81/tags/Excel/"/>
+      <category term="Excel" scheme="http://blog.shun-fu.cn/tags/Excel/"/>
     
   </entry>
   
   <entry>
     <title>约翰福音</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/14/%E7%BA%A6%E7%BF%B0%E7%A6%8F%E9%9F%B3/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/14/约翰福音/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/14/%E7%BA%A6%E7%BF%B0%E7%A6%8F%E9%9F%B3/"/>
+    <id>http://blog.shun-fu.cn/2018/01/14/约翰福音/</id>
     <published>2018-01-14T08:46:40.000Z</published>
     <updated>2018-03-28T12:50:26.473Z</updated>
     
@@ -145,17 +145,17 @@
     
     </summary>
     
-      <category term="灵修笔记" scheme="https://www.shun-fu.cn:81/categories/%E7%81%B5%E4%BF%AE%E7%AC%94%E8%AE%B0/"/>
+      <category term="灵修笔记" scheme="http://blog.shun-fu.cn/categories/%E7%81%B5%E4%BF%AE%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="读经" scheme="https://www.shun-fu.cn:81/tags/%E8%AF%BB%E7%BB%8F/"/>
+      <category term="读经" scheme="http://blog.shun-fu.cn/tags/%E8%AF%BB%E7%BB%8F/"/>
     
   </entry>
   
   <entry>
     <title>大数据分析方法:用分析驱动商业价值-1</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E5%88%86%E6%9E%90%E9%A9%B1%E5%8A%A8%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/12/大数据分析方法-用分析驱动商业价值/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E5%88%86%E6%9E%90%E9%A9%B1%E5%8A%A8%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC/"/>
+    <id>http://blog.shun-fu.cn/2018/01/12/大数据分析方法-用分析驱动商业价值/</id>
     <published>2018-01-12T14:06:38.000Z</published>
     <updated>2018-03-28T13:18:27.600Z</updated>
     
@@ -171,17 +171,17 @@
     
     </summary>
     
-      <category term="读书笔记" scheme="https://www.shun-fu.cn:81/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="http://blog.shun-fu.cn/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="大数据分析" scheme="https://www.shun-fu.cn:81/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="大数据分析" scheme="http://blog.shun-fu.cn/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>新年蒙福</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/12/%E6%96%B0%E5%B9%B4%E8%92%99%E7%A6%8F/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/12/新年蒙福/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/12/%E6%96%B0%E5%B9%B4%E8%92%99%E7%A6%8F/"/>
+    <id>http://blog.shun-fu.cn/2018/01/12/新年蒙福/</id>
     <published>2018-01-12T01:58:32.000Z</published>
     <updated>2018-01-13T12:33:32.406Z</updated>
     
@@ -199,21 +199,21 @@
     
     </summary>
     
-      <category term="灵修笔记" scheme="https://www.shun-fu.cn:81/categories/%E7%81%B5%E4%BF%AE%E7%AC%94%E8%AE%B0/"/>
+      <category term="灵修笔记" scheme="http://blog.shun-fu.cn/categories/%E7%81%B5%E4%BF%AE%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="感恩" scheme="https://www.shun-fu.cn:81/tags/%E6%84%9F%E6%81%A9/"/>
+      <category term="感恩" scheme="http://blog.shun-fu.cn/tags/%E6%84%9F%E6%81%A9/"/>
     
-      <category term="赞美" scheme="https://www.shun-fu.cn:81/tags/%E8%B5%9E%E7%BE%8E/"/>
+      <category term="赞美" scheme="http://blog.shun-fu.cn/tags/%E8%B5%9E%E7%BE%8E/"/>
     
-      <category term="祷告" scheme="https://www.shun-fu.cn:81/tags/%E7%A5%B7%E5%91%8A/"/>
+      <category term="祷告" scheme="http://blog.shun-fu.cn/tags/%E7%A5%B7%E5%91%8A/"/>
     
   </entry>
   
   <entry>
     <title>Python爬取携程网站问答数据</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/11/python%E7%88%AC%E5%8F%96%E6%90%BA%E7%A8%8B%E7%BD%91%E7%AB%99%E9%97%AE%E7%AD%94%E6%95%B0%E6%8D%AE/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/11/python爬取携程网站问答数据/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/11/python%E7%88%AC%E5%8F%96%E6%90%BA%E7%A8%8B%E7%BD%91%E7%AB%99%E9%97%AE%E7%AD%94%E6%95%B0%E6%8D%AE/"/>
+    <id>http://blog.shun-fu.cn/2018/01/11/python爬取携程网站问答数据/</id>
     <published>2018-01-11T13:46:01.000Z</published>
     <updated>2018-01-13T12:34:24.329Z</updated>
     
@@ -230,19 +230,19 @@
     
     </summary>
     
-      <category term="教程应用" scheme="https://www.shun-fu.cn:81/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
+      <category term="教程应用" scheme="http://blog.shun-fu.cn/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
     
     
-      <category term="python" scheme="https://www.shun-fu.cn:81/tags/python/"/>
+      <category term="python" scheme="http://blog.shun-fu.cn/tags/python/"/>
     
-      <category term="爬虫" scheme="https://www.shun-fu.cn:81/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="http://blog.shun-fu.cn/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>Welcome</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/08/welcome/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/08/welcome/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/08/welcome/"/>
+    <id>http://blog.shun-fu.cn/2018/01/08/welcome/</id>
     <published>2018-01-08T09:29:32.000Z</published>
     <updated>2018-01-13T12:36:26.404Z</updated>
     
@@ -254,17 +254,17 @@
     
     </summary>
     
-      <category term="闲谈杂记" scheme="https://www.shun-fu.cn:81/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
+      <category term="闲谈杂记" scheme="http://blog.shun-fu.cn/categories/%E9%97%B2%E8%B0%88%E6%9D%82%E8%AE%B0/"/>
     
     
-      <category term="welcome" scheme="https://www.shun-fu.cn:81/tags/welcome/"/>
+      <category term="welcome" scheme="http://blog.shun-fu.cn/tags/welcome/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://www.shun-fu.cn:81/2018/01/08/hello-world/"/>
-    <id>https://www.shun-fu.cn:81/2018/01/08/hello-world/</id>
+    <link href="http://blog.shun-fu.cn/2018/01/08/hello-world/"/>
+    <id>http://blog.shun-fu.cn/2018/01/08/hello-world/</id>
     <published>2018-01-08T08:14:06.924Z</published>
     <updated>2018-01-13T12:41:07.132Z</updated>
     
@@ -279,10 +279,10 @@
     
     </summary>
     
-      <category term="教程应用" scheme="https://www.shun-fu.cn:81/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
+      <category term="教程应用" scheme="http://blog.shun-fu.cn/categories/%E6%95%99%E7%A8%8B%E5%BA%94%E7%94%A8/"/>
     
     
-      <category term="hexo" scheme="https://www.shun-fu.cn:81/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.shun-fu.cn/tags/hexo/"/>
     
   </entry>
   
