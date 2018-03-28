@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.shun-fu.cn/about/index.html</loc>
+    
+    <lastmod>2018-03-28T14:27:48.663Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.shun-fu.cn/2018/03/01/Android-APP-Development/</loc>
     
     <lastmod>2018-03-28T13:38:52.345Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://blog.shun-fu.cn/2018/01/12/%E6%96%B0%E5%B9%B4%E8%92%99%E7%A6%8F/</loc>
     
     <lastmod>2018-01-13T12:33:32.406Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.shun-fu.cn/about/index.html</loc>
-    
-    <lastmod>2018-01-10T14:22:00.382Z</lastmod>
     
   </url>
   
