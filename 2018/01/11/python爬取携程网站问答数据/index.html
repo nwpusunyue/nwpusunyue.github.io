@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Python爬取携程网站问答数据 | 孙悦的博客|YueSun</title>
+  <meta name="description" content="【Tips：点击右下角锚链图标查看文章目录。】  背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】">
+<meta name="keywords" content="python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬取携程网站问答数据">
+<meta property="og:url" content="http://blog.shun-fu.cn/2018/01/11/python爬取携程网站问答数据/index.html">
+<meta property="og:site_name" content="YueYue">
+<meta property="og:description" content="【Tips：点击右下角锚链图标查看文章目录。】  背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-home.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-qa.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-label.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-list.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-detail.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-ajax.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-error.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-links.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-ask_title.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-answer.jpg">
+<meta property="og:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-result.jpg">
+<meta property="og:updated_time" content="2018-01-13T12:34:24.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python爬取携程网站问答数据">
+<meta name="twitter:description" content="【Tips：点击右下角锚链图标查看文章目录。】  背景 昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，方法大似气力。经过简单入门的学习，仿写代码之后，终于实现了这个功能。  观察 从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）  在右侧的侧边栏中可以找到我们所需要的【酒店问答】">
+<meta name="twitter:image" content="http://blog.shun-fu.cn/images/posts/experiment/hotel-home.jpg">
+<meta name="twitter:creator" content="@nwpusunyue">
+<link rel="publisher" href="nwpusunyue">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://blog.shun-fu.cn/2018/01/11/python爬取携程网站问答数据/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="YueYue" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://www.shun-fu.cn:81" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="500" height="500">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">孙悦</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">努力学习中……欢迎大家评论留言交流,谢谢大家支持!</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shaanxi, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/nwpusunyue" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/sunyue2719" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/nwpusunyue" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://facebook.com/nwpusunyue" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://www.behance.net/nwpusunyue" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
+            
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/03/10/给高中生的建议/" class="thumb">
+    
+    
+        <span style="background-image:url(/images/thumbnail/thumb-exam.png)" alt="给高中生的建议" class="thumb-image"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/闲谈杂记/">闲谈杂记</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/03/10/给高中生的建议/" class="title">给高中生的建议</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-03-10T05:29:13.000Z" itemprop="datePublished">2018-03-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/03/01/Android-APP-Development/" class="thumb">
+    
+    
+        <span style="background-image:url(/images/thumbnail/thumb-experiment.png)" alt="Android_APP_Development" class="thumb-image"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/教程应用/">教程应用</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/03/01/Android-APP-Development/" class="title">Android_APP_Development</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-03-01T07:58:21.000Z" itemprop="datePublished">2018-03-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/02/26/新学期计划/" class="thumb">
+    
+    
+        <span style="background-image:url(/images/thumbnail/thumb-schedule.png)" alt="新学期计划" class="thumb-image"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/闲谈杂记/">闲谈杂记</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/02/26/新学期计划/" class="title">新学期计划</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-02-26T14:29:24.000Z" itemprop="datePublished">2018-02-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/01/25/新编Excel2016应用大全/" class="thumb">
+    
+    
+        <span style="background-image:url(/images/thumbnail/thumb-books.png)" alt="新编Excel2016应用大全" class="thumb-image"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/读书笔记/">读书笔记</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/25/新编Excel2016应用大全/" class="title">新编Excel2016应用大全</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-25T08:56:36.000Z" itemprop="datePublished">2018-01-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/01/14/约翰福音/" class="thumb">
+    
+    
+        <span style="background-image:url(/images/thumbnail/thumb-holy_bible.png)" alt="约翰福音" class="thumb-image"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/灵修笔记/">灵修笔记</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/14/约翰福音/" class="title">约翰福音</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-14T08:46:40.000Z" itemprop="datePublished">2018-01-14</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/教程应用/">教程应用</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/灵修笔记/">灵修笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/闲谈杂记/">闲谈杂记</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/welcome/">welcome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据分析/">大数据分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/感恩/">感恩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/祷告/">祷告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经验建议/">经验建议</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划/">计划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读经/">读经</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/赞美/">赞美</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/Excel/" style="font-size: 13px;">Excel</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/welcome/" style="font-size: 13px;">welcome</a> <a href="/tags/大数据分析/" style="font-size: 13px;">大数据分析</a> <a href="/tags/感恩/" style="font-size: 13px;">感恩</a> <a href="/tags/爬虫/" style="font-size: 13px;">爬虫</a> <a href="/tags/祷告/" style="font-size: 13px;">祷告</a> <a href="/tags/经验建议/" style="font-size: 13px;">经验建议</a> <a href="/tags/计划/" style="font-size: 13px;">计划</a> <a href="/tags/读经/" style="font-size: 13px;">读经</a> <a href="/tags/赞美/" style="font-size: 13px;">赞美</a>
+    </div>
+  </div>
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#观察"><span class="toc-number">2.</span> <span class="toc-text"> 观察</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">3.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础知识正则表达式"><span class="toc-number">4.</span> <span class="toc-text"> 基础知识——正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式常用的符号"><span class="toc-number">4.1.</span> <span class="toc-text"> 正则表达式常用的符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式的效果展示"><span class="toc-number">4.2.</span> <span class="toc-text"> 正则表达式的效果展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式的实用技巧"><span class="toc-number">4.3.</span> <span class="toc-text"> 正则表达式的实用技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码实现"><span class="toc-number">5.</span> <span class="toc-text"> 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从全部问答信息中获得包含某酒店标签的问答详情页的url"><span class="toc-number">5.1.</span> <span class="toc-text"> 从全部问答信息中获得包含某酒店标签的问答详情页的URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从问答的详情页抓取提问的问题及回复的答案等数据"><span class="toc-number">5.2.</span> <span class="toc-text"> 从问答的详情页抓取提问的问题及回复的答案等数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化与改进"><span class="toc-number">6.</span> <span class="toc-text"> 优化与改进</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#感想"><span class="toc-number">7.</span> <span class="toc-text"> 感想</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-python爬取携程网站问答数据" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python爬取携程网站问答数据
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/11/python爬取携程网站问答数据/" class="article-date">
+	  <time datetime="2018-01-11T13:46:01.000Z" itemprop="datePublished">2018-01-11</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/教程应用/">教程应用</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/python/">python</a>, <a class="article-tag-link" href="/tags/爬虫/">爬虫</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/11/python爬取携程网站问答数据/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2,217(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <p>【Tips：点击右下角锚链图标查看文章目录。】</p>
+<h1 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h1>
+<p>昨天师兄让我在携程上找一家酒店，抓取该酒店的问答信息。复制粘贴的操作繁琐枯燥，想学习用python爬虫来实现。果然，<strong>方法大似气力</strong>。经过简单入门的学习，仿写代码之后，终于实现了这个功能。</p>
+<h1 id="观察"><a class="markdownIt-Anchor" href="#观察"></a> 观察</h1>
+<p>从携程网站上打开一个酒店的网页，如珠海香江维克酒店：（可以留心看一下当前页面的URL，后续会用到）<img src="/images/posts/experiment/hotel-home.jpg" alt="hotel-home" title="hotel-home"> <br><br>
+在右侧的侧边栏中可以找到我们所需要的【酒店问答】模块：点击查看全部问答，<br>
+<img src="/images/posts/experiment/hotel-qa.jpg" alt="hotel-Q&amp;A" title="hotel-Q&amp;A"><br><br>
+发现携程的评论分类是基于标签的,并且仔细观察，这个URL中出现的一串数字和首页出现的数字是一样的。<br>
+<img src="/images/posts/experiment/hotel-label.jpg" alt="hotel-label" title="hotel-label"><br>
+该页面是经过初步筛选的包含该酒店的问答信息。<br>
+<img src="/images/posts/experiment/hotel-list.jpg" alt="hotel-list" title="hotel-list"><br><br>
+每页有20条评论，详细的问答页需要再次点击查看，分别为：<br>
+<img src="/images/posts/experiment/hotel-detail.jpg" alt="hotel-detail" title="hotel-detail"></p>
+<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
+<p>原本想参考网上博客<a href="http://blog.csdn.net/qq_29245097/article/details/51804501" target="_blank" rel="noopener">《python爬虫（上）–请求——关于旅游网站的酒店评论爬取（传参方法）》</a>的方法实现对json包的分析和提取，但是正如文章所提到的，携程网站做了反爬虫处理，无法通过分析Ajax传输的方式来获得网站数据。另外，携程技术中心研发经理崔广宇在中心官微发送的推文<a href="http://mp.weixin.qq.com/s?__biz=MjM5MDI3MjA5MQ==&amp;mid=2697265241&amp;idx=2&amp;sn=f2965d124d07fe5efcdc85094eb1c2df&amp;scene=1&amp;srcid=06304xa9GCL3BIkgKNDyMWLW#rd" target="_blank" rel="noopener">《干货|关于反爬虫，看这一篇就够了》</a>中，也说明了携程网站针对反爬虫做了大量的工作：①每年三月份，学生大量爬数据造成的服务器负担问题，运维人员不得不设法维护；②研发人员针对爬虫做应对处理，如查封IP，禁止访问，甚至是构造假数据！<br>
+从网页的network中查询到ajax传输数据的URL：<br>
+<img src="/images/posts/experiment/hotel-ajax.jpg" alt="hotel-ajax" title="hotel-ajax"><br>
+打开URL，发现并没有得到想要的json数据包，o(╥﹏╥)o<br>
+<img src="/images/posts/experiment/hotel-error.jpg" alt="hotel-error" title="hotel-error"><br>
+<br>所以，正所谓功夫再高，也怕菜刀。不行我就暴力一些，就按照网页浏览的顺序进行：<br>
+<em>·1 从全部问答信息中获得包含某酒店标签的问答详情页的URL</em><br>
+<em>·2 从问答的详情页抓取提问的问题及回复的答案等数据</em></p>
+<h1 id="基础知识正则表达式"><a class="markdownIt-Anchor" href="#基础知识正则表达式"></a> 基础知识——正则表达式</h1>
+<h2 id="正则表达式常用的符号"><a class="markdownIt-Anchor" href="#正则表达式常用的符号"></a> 正则表达式常用的符号</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.  匹配换行符\n除外的任意字符</span><br><span class="line">*  匹配前一个字符0次或无限次</span><br><span class="line">?  匹配前一个字符0词或1次</span><br><span class="line">.* 贪心算法(尽可能长的匹配)</span><br><span class="line">.*? 非贪心算法(匹配到就认为成功，可多次匹配)</span><br><span class="line">()  括号内的数据作为结果返回</span><br></pre></td></tr></table></figure>
+<h2 id="正则表达式的效果展示"><a class="markdownIt-Anchor" href="#正则表达式的效果展示"></a> 正则表达式的效果展示</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">findall()   匹配所有符合规律的内容，返回包含结果的列表</span><br><span class="line">search()    匹配并提取第一个符合规律的内容，返回一个正则表达对象(object)</span><br><span class="line">sub()       替换符合规律的内容，返回替换后的值</span><br></pre></td></tr></table></figure>
+<h2 id="正则表达式的实用技巧"><a class="markdownIt-Anchor" href="#正则表达式的实用技巧"></a> 正则表达式的实用技巧</h2>
+<ul>
+<li>使用findall() 和 search() 从文本中匹配感兴趣的内容</li>
+<li>实用sub实现翻页功能</li>
+<li>先抓大后抓小</li>
+<li>实用\d 匹配纯数字</li>
+</ul>
+<h1 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h1>
+<h2 id="从全部问答信息中获得包含某酒店标签的问答详情页的url"><a class="markdownIt-Anchor" href="#从全部问答信息中获得包含某酒店标签的问答详情页的url"></a> 从全部问答信息中获得包含某酒店标签的问答详情页的URL</h2>
+<p>(1)首先，我需要查看网页源代码，知道网页中每一条问答详情的超链接指向，以便正则匹配：<br>
+<img src="/images/posts/experiment/hotel-links.jpg" alt="totle-links" title="hotel-links"><br><br>
+可以发现很明显的规律，就是包含酒店标签的都有共同的特征：data-href=&quot;/asks/zhuhai27/…html&quot;，所以要针对此项规律匹配即可。</p>
+<p>(2)关于翻页的问题，第1页的url是：<a href="http://you.ctrip.com/asks/z5489970.html" target="_blank" rel="noopener">http://you.ctrip.com/asks/z5489970.html</a> ， 第2页的url：<a href="http://you.ctrip.com/asks/z5489970-k3/p2.html" target="_blank" rel="noopener">http://you.ctrip.com/asks/z5489970-k3/p2.html</a>，此后第n页就是pn.html，那第1页是否可以是p1.html呢？不妨一试，果然经过试验，p1.html 就是刚才的第一页！于是，可以推断出：5489970 是该酒店的特定hotelID,包含该酒店问答信息的网址为格式为：/zHotelID-k3/p#.html<br>
+所以按照这个格式进行翻页。</p>
+<p>(3)代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding:utf-8*-</span></span><br><span class="line"><span class="comment">## 获取到每个酒店的问答页</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment"># 携程原始评论</span></span><br><span class="line">old_url = <span class="string">'http://you.ctrip.com/asks/z371230-k3/p1.html'</span></span><br><span class="line">total_page = <span class="number">4</span> <span class="comment"># 暂定为4，每页20条</span></span><br><span class="line">num = <span class="number">0</span> <span class="comment"># 为了保存所有的评论，num 设置为 全局</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,total_page+<span class="number">1</span>):</span><br><span class="line">    <span class="comment"># sub 实现翻页</span></span><br><span class="line">    newlink = re.sub(<span class="string">'/p\d.html'</span>,<span class="string">'/p%d.html'</span>%i,old_url,re.S) <span class="comment"># \d 匹配纯数字</span></span><br><span class="line">    <span class="keyword">print</span> newlink</span><br><span class="line">    <span class="comment"># 请求网页</span></span><br><span class="line">    html_obj = requests.get(newlink)</span><br><span class="line">    html = html_obj.content</span><br><span class="line">    <span class="comment"># 匹配到问答数据网页地址 data-href="/asks/zhuhai27/4597548.html"</span></span><br><span class="line">    <span class="comment"># zhuhai27 推测是城市及城市代码，北京地区为beijing1/</span></span><br><span class="line">    links = re.findall(<span class="string">'data-href="(/asks/zhuhai27/........html)"'</span>,html,re.S)</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> links:</span><br><span class="line">        QALink = <span class="string">'http://you.ctrip.com'</span>+each <span class="comment"># 构造网址</span></span><br><span class="line">        <span class="comment"># print QALink</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'now saving: '</span> + QALink</span><br><span class="line">        QAhtml_obj = requests.get(QALink)</span><br><span class="line">        <span class="comment"># 保存问答详情页到htmls下以便后续使用</span></span><br><span class="line">        fp = open(<span class="string">'htmls\\'</span>+str(num)+<span class="string">'.html'</span>,<span class="string">'wb'</span>) </span><br><span class="line">        fp.write(QAhtml_obj.content)</span><br><span class="line">        fp.close()</span><br><span class="line">        num += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>(4) 结果<br>
+将详细的问答网页保存为html,保存在本地。</p>
+<h2 id="从问答的详情页抓取提问的问题及回复的答案等数据"><a class="markdownIt-Anchor" href="#从问答的详情页抓取提问的问题及回复的答案等数据"></a> 从问答的详情页抓取提问的问题及回复的答案等数据</h2>
+<p>(1) 检查网页元素，可以得到提问的问题的网页标签中class=“ask_title”,<br>
+<img src="/images/posts/experiment/hotel-ask_title.jpg" alt="hotel-ask_title" title="hotel-ask_title"> <br> 回答的标签中class=“answer_text”,<br><img src="/images/posts/experiment/hotel-answer.jpg" alt="hotel-answer" title="hotel-answer"><br>于是又可以匹配成功了。<br>
+(2) 代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding:utf-8*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 获取到html 后进行问答的爬取</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># 打开文件夹列出所有的文件</span></span><br><span class="line">path = <span class="string">'./htmls/'</span> </span><br><span class="line">files = os.listdir(path)</span><br><span class="line"><span class="comment"># 保存问答信息到QA.txt</span></span><br><span class="line">QAInfo = open(<span class="string">'QA.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">num = <span class="number">1</span> </span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">    <span class="comment"># 打开文件</span></span><br><span class="line">    f = open(path+file,<span class="string">'r'</span>)</span><br><span class="line">    html = f.read()</span><br><span class="line">    f.close </span><br><span class="line">    question = re.search(<span class="string">'&lt;i class="icon_asktitle"&gt;&lt;/i&gt;(.*?)\n'</span>,html,re.S).group(<span class="number">1</span>)<span class="comment"># 保存问题</span></span><br><span class="line">    QAInfo.write(<span class="string">'Q'</span> + str(num) + <span class="string">":"</span> + question+<span class="string">'\n'</span>) </span><br><span class="line">    answers = re.findall(<span class="string">'&lt;p class="answer_text"&gt;(.*?)&lt;/p&gt;'</span>,html,re.S)</span><br><span class="line">    i=<span class="number">1</span> <span class="comment"># 保存答案，答案有多个</span></span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> answers:</span><br><span class="line">        QAInfo.write(<span class="string">'\t'</span>+<span class="string">'A'</span>+str(i)+<span class="string">':'</span>+each+<span class="string">'\n'</span>)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    num+=<span class="number">1</span></span><br><span class="line"><span class="comment"># 关闭文件</span></span><br><span class="line">QAInfo.close</span><br></pre></td></tr></table></figure>
+<p>(3) 结果<br>
+得到问答数据QA.txt:<br>
+<img src="/images/posts/experiment/hotel-result.jpg" alt="hotel-result" title="hotel-result"></p>
+<h1 id="优化与改进"><a class="markdownIt-Anchor" href="#优化与改进"></a> 优化与改进</h1>
+<p>(1) 可以将两部分代码合并，不用保存在本地的过程，对两个程序进行合并操作。<br>
+(2) 可以将酒店的hotelID和地区(如zhuhai27)等信息剥离出来，作为输入项，可以批量实现对某地区某酒店问答信息的爬取。<br>
+(3) 正则匹配过于简单，以至于在结果中出现如空格&quot;&amp; nbsp&quot;;手机enjoy表情&quot;&amp;#128522; &quot;甚至是超链接的信息，需要进一步对正则表达式进行优化。<br>
+解决办法是：对于空格可以用beautifulsoup 中的 strip() 方法。对于enjoy 表情，可以参看博客<a href="http://blog.csdn.net/binjly/article/details/47321043" target="_blank" rel="noopener">《移动前端手机输入法自带emoji表情字符处理》</a>处理。对于超链接信息，可以尝试获取标签的纯文本信息，先大定位，再小定位，用get_text()获取。</p>
+<h1 id="感想"><a class="markdownIt-Anchor" href="#感想"></a> 感想</h1>
+<ul>
+<li>实验半天，写博客半天，以后需要提高自己的码字速度和markdown语法的使用。</li>
+<li>实验过程中，一开始不要想那么多细节，先把主要问题简单化，具体化，不要被细枝末节卡住，等到完成了基本功能之后，再逐步实现更优化的细节。这样效率会提高，而且也会有一步一步实现的满足感。</li>
+<li>可以尝试一边做实验，一遍简单写博客(博客不是论文，太详细会浪费自己的时间。)<br>
+----------------------&lt;完&gt;----------------------<br>
+附上合并后的代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding:utf-8*-</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment"># 携程原始评论</span></span><br><span class="line"><span class="comment"># 某酒店问答网址 'http://you.ctrip.com/asks/z430205-k3/p1.html'</span></span><br><span class="line"><span class="comment"># 格式 430205 为特定的某酒店的HotelID  p1 p2 为包含该酒店评论标签的评论页，每页20条</span></span><br><span class="line">old_url = <span class="string">'http://you.ctrip.com/asks/z430205-k3/p1.html'</span></span><br><span class="line">total_page = <span class="number">4</span></span><br><span class="line"><span class="comment"># 为了保存所有的评论，num 设置为 全局</span></span><br><span class="line">QAInfo = open(<span class="string">'QA-2.txt'</span>,<span class="string">'w+'</span>)</span><br><span class="line">num = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,total_page+<span class="number">1</span>):</span><br><span class="line">    <span class="comment"># sub 实现翻页</span></span><br><span class="line">    newlink = re.sub(<span class="string">'/p\d.html'</span>,<span class="string">'/p%d.html'</span>%i,old_url,re.S)</span><br><span class="line">    <span class="keyword">print</span> newlink</span><br><span class="line">    <span class="comment"># 请求网页</span></span><br><span class="line">    html_obj = requests.get(newlink)</span><br><span class="line">    html = html_obj.content</span><br><span class="line">    <span class="comment"># 匹配到问答数据网页地址 data-href="/asks/zhuhai27/4597548.html"</span></span><br><span class="line">    <span class="comment"># 每页20条评论</span></span><br><span class="line">    links = re.findall(<span class="string">'data-href="(/asks/zhuhai27/.*?.html)"'</span>,html,re.S)</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> links:</span><br><span class="line">        QALink = <span class="string">'http://you.ctrip.com'</span>+each  <span class="comment"># 构造网址</span></span><br><span class="line">        <span class="keyword">print</span> QALink</span><br><span class="line">        QAhtml_obj = requests.get(QALink)</span><br><span class="line">        html = QAhtml_obj.content</span><br><span class="line">        question = re.search(<span class="string">'&lt;i class="icon_asktitle"&gt;&lt;/i&gt;(.*?)\n'</span>,html,re.S).group(<span class="number">1</span>)<span class="comment"># 保存问题</span></span><br><span class="line">        QAInfo.write(<span class="string">'Q'</span> + str(num) + <span class="string">":"</span> + question+<span class="string">'\n'</span>) </span><br><span class="line">        <span class="keyword">print</span> question</span><br><span class="line">        answers = re.findall(<span class="string">'&lt;p class="answer_text"&gt;(.*?)&lt;/p&gt;'</span>,html,re.S) <span class="comment"># 保存答案，答案有多个</span></span><br><span class="line">        i=<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> answers:</span><br><span class="line">            QAInfo.write(<span class="string">'\t'</span>+<span class="string">'A'</span>+str(i)+<span class="string">':'</span>+each+<span class="string">'\n'</span>)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        num+=<span class="number">1</span></span><br><span class="line"><span class="comment"># 关闭文件</span></span><br><span class="line">QAInfo.close</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://blog.shun-fu.cn/2018/01/11/python爬取携程网站问答数据/" title="Python爬取携程网站问答数据" target="_blank" rel="external">http://blog.shun-fu.cn/2018/01/11/python爬取携程网站问答数据/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://www.shun-fu.cn:81" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://www.shun-fu.cn:81" target="_blank"><span class="text-dark">孙悦</span><small class="ml-1x">努力学习中……欢迎大家评论留言交流,谢谢大家支持!</small></a></h3>
+        <div>西北工业大学-计算机学院。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA4My85NjQ0">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/01/12/新年蒙福/" title="新年蒙福"><i class="icon icon-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;上一篇</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/01/08/welcome/" title="Welcome">下一篇&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter,google" data-mobile-sites="weibo,qq,qzone"></div>
+    
+    
+    <div class="toggle-toc hidden-xs">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+      </a>
+    </div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/zhifu.png" alt="扫码支持" title="扫一扫" />
+          </div>
+          <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/zhifu.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="支付宝" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weixin.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="微信支付" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>扫一扫，即可进行扫码打赏哦</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/nwpusunyue" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/sunyue2719" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/nwpusunyue" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://facebook.com/nwpusunyue" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://www.behance.net/nwpusunyue" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 SunYue
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+    
+    
+        <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-111963608-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+    <script defer>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?1906dc33581f975442bcc24db7d37b83";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+</body>
+</html>
