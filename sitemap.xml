@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.shun-fu.cn/2018/04/03/%E5%96%9C%E4%B9%90%E7%9A%84%E8%AF%BE%E4%BB%A3%E8%A1%A8/</loc>
+    
+    <lastmod>2018-04-02T16:26:23.621Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.shun-fu.cn/2018/01/25/%E6%96%B0%E7%BC%96Excel2016%E5%BA%94%E7%94%A8%E5%A4%A7%E5%85%A8/</loc>
     
     <lastmod>2018-03-31T15:01:18.253Z</lastmod>
@@ -100,14 +107,14 @@
   </url>
   
   <url>
-    <loc>http://blog.shun-fu.cn/links/index.html</loc>
+    <loc>http://blog.shun-fu.cn/categories/index.html</loc>
     
     <lastmod>2018-01-08T08:19:10.855Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.shun-fu.cn/categories/index.html</loc>
+    <loc>http://blog.shun-fu.cn/links/index.html</loc>
     
     <lastmod>2018-01-08T08:19:10.855Z</lastmod>
     
