@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.shun-fu.cn/"/>
-  <updated>2018-06-25T17:36:25.570Z</updated>
+  <updated>2018-11-16T08:41:10.537Z</updated>
   <id>http://blog.shun-fu.cn/</id>
   
   <author>
@@ -17,16 +17,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://blog.shun-fu.cn/2018/06/26/test/"/>
-    <id>http://blog.shun-fu.cn/2018/06/26/test/</id>
-    <published>2018-06-25T17:36:25.000Z</published>
-    <updated>2018-06-25T17:36:25.570Z</updated>
+    <title></title>
+    <link href="http://blog.shun-fu.cn/2018/11/16/python%E8%AE%B2%E4%B9%89_week1/"/>
+    <id>http://blog.shun-fu.cn/2018/11/16/python讲义_week1/</id>
+    <published>2018-11-16T08:41:41.747Z</published>
+    <updated>2018-11-16T08:41:10.537Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="python介绍"><a class="markdownIt-Anchor" href="#python介绍"></a> Python介绍</h2><p>解释性语言<br>Python之父Guido van Rossum（吉多·范罗苏姆）</p><img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=c0d38aab9d16fdfacc61cebcd5e6e731/d058ccbf6c81800a7ee4f88eb13533fa828b4728.jpg" height="200">[一个段子](https://mp.weixin.qq.com/s/G6aG5sKBiL_R8GeqERJF9Q)<h2 id="python软件安装"><a class="markdownIt-Anchor" href="#python软件安装"></a> Python软件安装</h2><ul><li><p>Python解释器</p><p>主流的有两种，Python2 和 Python3（推荐）</p></li><li><p>Python编辑工具</p><p>主流的集成开发工具：Anaconda 或者 PyCharm <br><br>通用的编辑器推荐：Sublime Text <br><br>其实解释器是非必要的，解释器中自带编辑器，但不是很好看 <br></p></li></ul><p>讲义准备了安装包是：Sublime Text3和Python3.6.4</p><h2 id="python教程推荐"><a class="markdownIt-Anchor" href="#python教程推荐"></a> Python教程推荐</h2><ul><li>视频教程 <a href="https://www.bilibili.com/video/av4050443/" target="_blank" rel="noopener">[小甲鱼]零基础入门学习Python</a></li><li>理论教程 <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python教程-廖雪峰的官方网站</a></li><li>代码教程 <a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">Python3教程-菜鸟教程</a></li></ul><h2 id="python之旅-helloworld"><a class="markdownIt-Anchor" href="#python之旅-helloworld"></a> Python之旅-HelloWorld</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- encoding=utf-8 -*-</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Hello World"</span>)</span><br></pre></td></tr></table></figure><p>Good Job!</p><p>接下来自己输出一句你最喜欢的名言到屏幕上！！</p><h2 id="变量与循环"><a class="markdownIt-Anchor" href="#变量与循环"></a> 变量与循环</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- encoding=utf-8 -*-</span></span><br><span class="line"><span class="comment"># 计算1+2的结果</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="keyword">print</span> (a+b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 任意计算公式</span></span><br><span class="line">c = a+b<span class="number">-1.5</span></span><br><span class="line"><span class="keyword">print</span> (c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算1+2+3+……100=？</span></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"><span class="comment">#reult = 1+2+3+4+5+……+100</span></span><br><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> (i&lt;=<span class="number">100</span>):</span><br><span class="line">    result = result+i</span><br><span class="line">    i = i+<span class="number">1</span></span><br><span class="line"><span class="keyword">print</span> (result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    result += i</span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进阶1+2+3+……100=？</span></span><br><span class="line">result = <span class="number">100</span>*<span class="number">101</span>/<span class="number">2</span></span><br><span class="line"><span class="keyword">print</span> (result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进阶 1+2+...+n=?</span></span><br><span class="line">N=<span class="number">1000</span></span><br><span class="line"><span class="keyword">print</span> (N*(N+<span class="number">1</span>)/<span class="number">2</span>)</span><br></pre></td></tr></table></figure><h2 id="python-案例多年期复利计算"><a class="markdownIt-Anchor" href="#python-案例多年期复利计算"></a> python-案例（多年期复利计算）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Capital = <span class="number">5000</span> <span class="comment"># 资产本金</span></span><br><span class="line">r = <span class="number">0.12</span> <span class="comment"># 名义年利率 </span></span><br><span class="line">m = <span class="number">4</span> <span class="comment"># 每期结算次数</span></span><br><span class="line">T = <span class="number">5</span> <span class="comment"># 存款年限</span></span><br><span class="line">FV = Capital * (<span class="number">1</span>+r/m)^(m*T)</span><br><span class="line"><span class="keyword">print</span> (FV)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h2 id=&quot;python介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#python介绍&quot;&gt;&lt;/a&gt; Python介绍&lt;/h2&gt;
+&lt;p&gt;解释性语言&lt;br&gt;
+Python之父Guido van Rossum（吉多·范罗苏姆）&lt;/p&gt;
+&lt;img s
+      
+    
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Python入门教程</title>
+    <link href="http://blog.shun-fu.cn/2018/07/09/Python%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
+    <id>http://blog.shun-fu.cn/2018/07/09/Python入门教程/</id>
+    <published>2018-07-09T13:25:29.000Z</published>
+    <updated>2018-11-16T08:43:26.833Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu基础知识"><a class="markdownIt-Anchor" href="#ubuntu基础知识"></a> Ubuntu基础知识</h1><h2 id="ubuntu设置语言环境"><a class="markdownIt-Anchor" href="#ubuntu设置语言环境"></a> Ubuntu设置语言环境</h2><p>System Setting - Language Support - Install Language Support - Install/Remove Language(安装<code>简体中文</code>) - 拖动<code>中文</code>到顶部 - 重启。</p><p>注意重启之后： 不要替换home目录下的文件夹为中文，方便命令行进行命令切换。</p><h2 id="apt安装软件"><a class="markdownIt-Anchor" href="#apt安装软件"></a> apt安装软件</h2><p>镜像源设置： 系统设置 - 软件和更新 - 下载自…其他站点 - 选择最佳服务器<br>常见命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装软件</span></span><br><span class="line">sudo apt install package-name</span><br><span class="line"><span class="comment"># 卸载软件</span></span><br><span class="line">sudo apt remove package-name</span><br><span class="line"><span class="comment"># 更新软件包列表</span></span><br><span class="line">sudo apt update </span><br><span class="line"><span class="comment"># 更新已经安装的包</span></span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure><p>apt-get 和 apt 区别：<br>+ 都是Ubuntu藏用的软件安装命令<br>+ 早期使用的apt-get, 从Ubuntu 16开始，官方推荐apt<br>+ 用法相似</p><h2 id="离线安装deb包"><a class="markdownIt-Anchor" href="#离线安装deb包"></a> 离线安装deb包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i package-name.deb</span><br><span class="line"><span class="comment"># 修复软件包依赖关系</span></span><br><span class="line">sudo apt -f install </span><br><span class="line"></span><br><span class="line"><span class="comment">#举例安装GoogleChrome:</span></span><br><span class="line">sudo apt install libappindicator1 libndicator7</span><br><span class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</span><br><span class="line">sudo apt -f install</span><br><span class="line"></span><br><span class="line"><span class="comment">#举例安装sougou输入法:</span></span><br><span class="line"><span class="comment">#在语言支持中将输入法改为 fcitx</span></span><br><span class="line">sudo dpkg -i sougoupinyin_2.1.0.deb </span><br><span class="line">sudo apt -f install</span><br><span class="line"><span class="comment">#重启</span></span><br></pre></td></tr></table></figure><h1 id="linux基础"><a class="markdownIt-Anchor" href="#linux基础"></a> Linux基础</h1><h2 id="缩放终端字体快捷键"><a class="markdownIt-Anchor" href="#缩放终端字体快捷键"></a> 缩放终端字体快捷键</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + = </span><br><span class="line">Ctrl + - </span><br><span class="line"><span class="comment">#缩小字体</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;ubuntu基础知识&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ubuntu基础知识&quot;&gt;&lt;/a&gt; Ubuntu基础知识&lt;/h1&gt;
+&lt;h2 id=&quot;ubuntu设置语言环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; 
+      
+    
+    </summary>
+    
+      <category term="/images/thumbnail/thumb-python.png" scheme="http://blog.shun-fu.cn/categories/images-thumbnail-thumb-python-png/"/>
+    
+    
+      <category term="python" scheme="http://blog.shun-fu.cn/tags/python/"/>
     
   </entry>
   
@@ -78,9 +114,9 @@
       <category term="灵修笔记" scheme="http://blog.shun-fu.cn/categories/%E7%81%B5%E4%BF%AE%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="读经" scheme="http://blog.shun-fu.cn/tags/%E8%AF%BB%E7%BB%8F/"/>
-    
       <category term="祷告" scheme="http://blog.shun-fu.cn/tags/%E7%A5%B7%E5%91%8A/"/>
+    
+      <category term="读经" scheme="http://blog.shun-fu.cn/tags/%E8%AF%BB%E7%BB%8F/"/>
     
       <category term="交通" scheme="http://blog.shun-fu.cn/tags/%E4%BA%A4%E9%80%9A/"/>
     
@@ -272,11 +308,11 @@
       <category term="灵修笔记" scheme="http://blog.shun-fu.cn/categories/%E7%81%B5%E4%BF%AE%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="祷告" scheme="http://blog.shun-fu.cn/tags/%E7%A5%B7%E5%91%8A/"/>
-    
       <category term="感恩" scheme="http://blog.shun-fu.cn/tags/%E6%84%9F%E6%81%A9/"/>
     
       <category term="赞美" scheme="http://blog.shun-fu.cn/tags/%E8%B5%9E%E7%BE%8E/"/>
+    
+      <category term="祷告" scheme="http://blog.shun-fu.cn/tags/%E7%A5%B7%E5%91%8A/"/>
     
   </entry>
   

@@ -4,12 +4,32 @@
 
     
   <url>
-    <loc>http://blog.shun-fu.cn/2018/06/26/test/</loc>
-    <lastmod>2018-06-25T17:36:25.570Z</lastmod>
+    <loc>http://blog.shun-fu.cn/2018/07/09/Python%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2018-11-16T08:43:26.833Z</lastmod>
     <data>
         <display>
-        <title>test</title>
-        <pubTime>2018-06-25T17:36:25.000Z</pubTime>
+        <title>Python入门教程</title>
+        <pubTime>2018-07-09T13:25:29.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="/images/thumbnail/thumb-python.png" url="http://blog.shun-fu.cn/categories/images-thumbnail-thumb-python-png/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.shun-fu.cn/2018/11/16/python%E8%AE%B2%E4%B9%89_week1/</loc>
+    <lastmod>2018-11-16T08:41:10.537Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2018-11-16T08:41:41.747Z</pubTime>
         
          
            
@@ -46,9 +66,9 @@
         <title>喜乐的课代表</title>
         <pubTime>2018-04-02T16:20:24.000Z</pubTime>
         
-        <tag>读经</tag>
-         
         <tag>祷告</tag>
+         
+        <tag>读经</tag>
          
         <tag>交通</tag>
          
@@ -254,11 +274,11 @@
         <title>新年蒙福</title>
         <pubTime>2018-01-12T01:58:32.000Z</pubTime>
         
-        <tag>祷告</tag>
-         
         <tag>感恩</tag>
          
         <tag>赞美</tag>
+         
+        <tag>祷告</tag>
          
          
            
