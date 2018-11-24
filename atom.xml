@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.shun-fu.cn/"/>
-  <updated>2018-11-23T15:08:18.991Z</updated>
+  <updated>2018-11-24T13:36:49.616Z</updated>
   <id>http://blog.shun-fu.cn/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python讲义_week1</title>
+    <title>Python讲义_week2</title>
     <link href="http://blog.shun-fu.cn/2018/11/23/Python%E8%AE%B2%E4%B9%89-week2/"/>
     <id>http://blog.shun-fu.cn/2018/11/23/Python讲义-week2/</id>
     <published>2018-11-23T14:54:22.000Z</published>
-    <updated>2018-11-23T15:08:18.991Z</updated>
+    <updated>2018-11-24T13:36:49.616Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="week1-复习"><a class="markdownIt-Anchor" href="#week1-复习"></a> Week1 复习</h2><ul><li>print() 函数 打印输出</li><li>while  for 循环</li></ul><p>** 测试1：计算方程 f(x)= x^5 + 1 的结果，要求x可以任意改变。 **<br>** 测试2：计算 1<em>2</em>3*……*50 的结果 **<br>** 测试3：输出九九乘法表 **</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="week1-复习"><a class="markdownIt-Anchor" href="#week1-复习"></a> Week1 复习</h2><ul><li>print() 函数 打印输出</li><li>while  for 循环</li></ul><p>** 测试1：计算方程 f(x,y,z)= x^(y+z) + x<em>y + y</em>z + x<em>z + x</em>y<em>z 的结果，要求x可以任意改变。 **<br>** 测试2：计算 1</em>2<em>3</em>……*50 的结果 **<br>** 测试3：输出九九乘法表 **</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
