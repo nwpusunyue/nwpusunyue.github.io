@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://blog.shun-fu.cn/2018/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA/</loc>
-    <lastmod>2018-11-26T15:05:23.344Z</lastmod>
+    <lastmod>2018-11-28T11:55:20.716Z</lastmod>
+  </url>  <url>
+    <loc>http://blog.shun-fu.cn/2018/11/16/Python%E8%AE%B2%E4%B9%89-week1/</loc>
+    <lastmod>2018-11-28T10:03:13.301Z</lastmod>
   </url>  <url>
     <loc>http://blog.shun-fu.cn/2018/11/23/Python%E8%AE%B2%E4%B9%89-week2/</loc>
     <lastmod>2018-11-25T14:32:51.606Z</lastmod>
@@ -44,9 +47,6 @@
     <lastmod>2018-11-23T06:28:21.561Z</lastmod>
   </url>  <url>
     <loc>http://blog.shun-fu.cn/2018/01/11/python%E7%88%AC%E5%8F%96%E6%90%BA%E7%A8%8B%E7%BD%91%E7%AB%99%E9%97%AE%E7%AD%94%E6%95%B0%E6%8D%AE/</loc>
-    <lastmod>2018-11-23T06:28:21.546Z</lastmod>
-  </url>  <url>
-    <loc>http://blog.shun-fu.cn/2018/11/16/Python%E8%AE%B2%E4%B9%89-week1/</loc>
     <lastmod>2018-11-23T06:28:21.546Z</lastmod>
   </url>
 </urlset>
