@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="YueYue">
 <meta property="og:description" content="Week1 复习  print() 函数 打印输出 while循环  for 循环  测试1：计算方程 f(x,y,z)= x^(y+z) + xy + yz + x*z  的结果，并输出x=1, y=2, z=5 的结果。 测试2：计算 1*2*3*……*50的结果 测试3：输出九九乘法表  判断if 12345score = 60if (score &amp;gt;= 60):    print (">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-25T14:32:51.606Z">
+<meta property="og:updated_time" content="2018-11-28T12:23:54.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python讲义_week2">
 <meta name="twitter:description" content="Week1 复习  print() 函数 打印输出 while循环  for 循环  测试1：计算方程 f(x,y,z)= x^(y+z) + xy + yz + x*z  的结果，并输出x=1, y=2, z=5 的结果。 测试2：计算 1*2*3*……*50的结果 测试3：输出九九乘法表  判断if 12345score = 60if (score &amp;gt;= 60):    print (">
@@ -414,7 +414,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#week1-复习"><span class="toc-number">1.</span> <span class="toc-text"> Week1 复习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断if"><span class="toc-number">2.</span> <span class="toc-text"> 判断if</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表list和元组tuple"><span class="toc-number">3.</span> <span class="toc-text"> 列表List和元组Tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字典dictionary"><span class="toc-number">4.</span> <span class="toc-text"> 字典Dictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#练习"><span class="toc-number">5.</span> <span class="toc-text"> 练习</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#week1-复习"><span class="toc-number">1.</span> <span class="toc-text"> Week1 复习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断if"><span class="toc-number">2.</span> <span class="toc-text"> 判断if</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表list和元组tuple"><span class="toc-number">3.</span> <span class="toc-text"> 列表List和元组Tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字典dictionary"><span class="toc-number">4.</span> <span class="toc-text"> 字典Dictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#练习"><span class="toc-number">5.</span> <span class="toc-text"> 练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作业练习"><span class="toc-number">6.</span> <span class="toc-text"> 作业练习</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -465,7 +465,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/11/23/Python讲义-week2/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 349(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 415(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -521,6 +521,13 @@
 </table>
 <p>用dict字典的形式表示出来(xxx,yyy,zzz,为自己的对应信息）。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test 1</span></span><br><span class="line">x = <span class="number">1</span></span><br><span class="line">y = <span class="number">2</span></span><br><span class="line">z = <span class="number">5</span></span><br><span class="line">result = pow(x, (y+z)) + x*y + y*z + x*z</span><br><span class="line"><span class="keyword">print</span> (result)</span><br><span class="line"><span class="comment"># Test1-function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x, y, z)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> pow(x, (y+z)) + x*y + y*z + x*z</span><br><span class="line"><span class="keyword">print</span> (f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test 2</span></span><br><span class="line">result = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">51</span>):</span><br><span class="line">    result *= i</span><br><span class="line"><span class="keyword">print</span> (result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test 3</span></span><br><span class="line"><span class="keyword">for</span> cheng_i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> cheng_j <span class="keyword">in</span> range(<span class="number">1</span>,cheng_i+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">print</span> (str(cheng_j),<span class="string">'*'</span>,str(cheng_i),<span class="string">'='</span>,str(cheng_i*cheng_j), <span class="string">'\t'</span>, end=<span class="string">''</span>)</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="作业练习"><a class="markdownIt-Anchor" href="#作业练习"></a> 作业练习</h2>
+<ul>
+<li>阅读九九乘法表代码，运行并看懂原理。</li>
+<li>结合if语句和print语句，实现判断一个数是偶数还是奇数？<br>
+例如输入：3 输出：3 是奇数。<br>
+提示：需要使用取余函数mod() 或者 %</li>
+</ul>
 
       
     </div>

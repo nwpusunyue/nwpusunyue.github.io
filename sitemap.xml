@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.shun-fu.cn/2018/11/23/Python%E8%AE%B2%E4%B9%89-week2/</loc>
+    
+    <lastmod>2018-11-28T12:23:54.874Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.shun-fu.cn/2018/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA/</loc>
     
     <lastmod>2018-11-28T11:55:20.716Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://blog.shun-fu.cn/2018/11/16/Python%E8%AE%B2%E4%B9%89-week1/</loc>
     
     <lastmod>2018-11-28T10:03:13.301Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.shun-fu.cn/2018/11/23/Python%E8%AE%B2%E4%B9%89-week2/</loc>
-    
-    <lastmod>2018-11-25T14:32:51.606Z</lastmod>
     
   </url>
   
@@ -100,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://blog.shun-fu.cn/2018/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E5%88%86%E6%9E%90%E9%A9%B1%E5%8A%A8%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC/</loc>
+    <loc>http://blog.shun-fu.cn/2018/04/11/%E9%A1%BA%E6%9C%8D%E2%80%94%E2%80%94%E9%A1%BA%E7%A6%8F/</loc>
     
     <lastmod>2018-11-23T06:28:21.640Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.shun-fu.cn/2018/04/11/%E9%A1%BA%E6%9C%8D%E2%80%94%E2%80%94%E9%A1%BA%E7%A6%8F/</loc>
+    <loc>http://blog.shun-fu.cn/2018/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95-%E7%94%A8%E5%88%86%E6%9E%90%E9%A9%B1%E5%8A%A8%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC/</loc>
     
     <lastmod>2018-11-23T06:28:21.640Z</lastmod>
     
