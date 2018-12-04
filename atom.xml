@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.shun-fu.cn/"/>
-  <updated>2018-12-04T07:26:10.486Z</updated>
+  <updated>2018-12-04T07:27:37.198Z</updated>
   <id>http://blog.shun-fu.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.shun-fu.cn/2018/12/04/Python%E8%AE%B2%E4%B9%89-week3/"/>
     <id>http://blog.shun-fu.cn/2018/12/04/Python讲义-week3/</id>
     <published>2018-12-04T06:39:23.000Z</published>
-    <updated>2018-12-04T07:26:10.486Z</updated>
+    <updated>2018-12-04T07:27:37.198Z</updated>
     
     <content type="html"><![CDATA[<h2 id="作业"><a class="markdownIt-Anchor" href="#作业"></a> 作业</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">3</span></span><br><span class="line"><span class="comment">#num = input("请输入一个整数:")</span></span><br><span class="line"><span class="keyword">if</span> (num % <span class="number">2</span>):</span><br><span class="line">    <span class="keyword">print</span> (str(num)+<span class="string">"是奇数"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> (str(num)+<span class="string">"是偶数"</span>)</span><br></pre></td></tr></table></figure><h2 id="与或非-and-or-not"><a class="markdownIt-Anchor" href="#与或非-and-or-not"></a> 与或非 and or not</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标准</span></span><br><span class="line">Height = <span class="number">180</span></span><br><span class="line">Weight = <span class="number">75</span></span><br><span class="line">House = <span class="number">2</span></span><br><span class="line"><span class="keyword">if</span> (Height &gt;= <span class="number">100</span> <span class="keyword">and</span> Weight &lt;= <span class="number">100</span> <span class="keyword">and</span> House &gt;= <span class="number">0</span>):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Good!"</span>)</span><br></pre></td></tr></table></figure><h2 id="一些必要认识的符号"><a class="markdownIt-Anchor" href="#一些必要认识的符号"></a> 一些必要认识的符号</h2><p>参考 <a href="http://www.runoob.com/python3/python3-basic-operators.html" target="_blank" rel="noopener">【Python运算符】</a></p><table><thead><tr><th>符号</th><th>描述</th><th>例子</th></tr></thead><tbody><tr><td>%</td><td>取模 - 返回除法的余数</td><td>6%5 结果 1</td></tr><tr><td>**</td><td>幂 - 返回x的y次幂</td><td>2**3 结果 8</td></tr><tr><td>//</td><td>取整除 - 向下取接近除数的整数</td><td>5//2 结果 2</td></tr><tr><td>==</td><td>等于 - 比较对象是否相等</td><td>1==2 结果 FALSE; 2==2 结果 TRUE</td></tr><tr><td>!=</td><td>不等于 - 比较两个对象是否不相等</td><td>1!=2 结果 TRUE； 2!=2 结果 FALSE</td></tr><tr><td></td><td></td><td></td></tr></tbody></table>]]></content>
     
